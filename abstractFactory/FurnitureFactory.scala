@@ -2,15 +2,15 @@ trait Furniture{
     def style: String
 }
 
-trait ArtDecoStyle{
+trait ArtDecoFurniture{
     def style: String = "ArtDeco"
 }
 
-trait VictorianStyle{
+trait VictorianFurniture{
     def style: String = "Victorian"
 }
 
-trait ModernStyle{
+trait ModernFurniture{
     def style: String = "Modern"
 }
 
@@ -29,40 +29,40 @@ trait Table extends Furniture{
     override def toString = s"The table's shape is $shape and its style is $style"
 }
 
-class ArtDecoChair extends Chair with ArtDecoStyle{
+class ArtDecoChair extends Chair with ArtDecoFurniture{
     def hasLegs: Boolean = true
 }
 
-class VictorianChair extends Chair with VictorianStyle{
+class VictorianChair extends Chair with VictorianFurniture{
     def hasLegs: Boolean = true
 }
 
-class ModernChair extends Chair with ModernStyle{
+class ModernChair extends Chair with ModernFurniture{
     def hasLegs: Boolean = false
 }
 
 
-class ArtDecoSofa extends Sofa with ArtDecoStyle{
+class ArtDecoSofa extends Sofa with ArtDecoFurniture{
     def isComfy: Boolean = false
 }
 
-class VictorianSofa extends Sofa with VictorianStyle{
+class VictorianSofa extends Sofa with VictorianFurniture{
     def isComfy: Boolean = true
 }
 
-class ModernSofa extends Sofa with ModernStyle{
+class ModernSofa extends Sofa with ModernFurniture{
     def isComfy: Boolean = true
 }
 
-class ArtDecoTable extends Table with ArtDecoStyle{
+class ArtDecoTable extends Table with ArtDecoFurniture{
     def shape: String = "round"
 }
 
-class VictorianTable extends Table with VictorianStyle{
+class VictorianTable extends Table with VictorianFurniture{
     def shape: String = "square"
 }
 
-class ModernTable extends Table with ModernStyle{
+class ModernTable extends Table with ModernFurniture{
     def shape: String = "rectangular"
 }
 
@@ -98,7 +98,7 @@ class Application(val f: FurnitureFactory){
 
 
 object Runner{
-    def main(argv: Array[String]){
+    def main(argv: Array[String]): Unit = {
         new Application(createFurnitureFactory(argv(0)))
     }
 
